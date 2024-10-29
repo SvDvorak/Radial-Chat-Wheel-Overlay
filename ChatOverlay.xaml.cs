@@ -69,17 +69,17 @@ namespace ChatWheel
         {
             if (!Keyboard.GetKeyStates((Key) _settings.HotKey).HasFlag(KeyStates.Down))
             {
-                if (Visibility != Visibility.Hidden)
-                {
-                    //Selection has ended. Now acting
-                    Visibility = Visibility.Hidden;
-                    if (_lastChosenPie == null) return;
-                    _lastChosenPie.ReactToMouseLeave();
-                    SendKeys.SendWait("{ENTER}");
-                    Clipboard.SetText(_lastChosenPie.FullText);
-                    SendKeys.SendWait("^v");
-                    SendKeys.SendWait("{ENTER}");
-                }
+                if(Visibility == Visibility.Hidden)
+                    return;
+                
+                //Selection has ended. Now acting
+                Visibility = Visibility.Hidden;
+                if (_lastChosenPie == null) return;
+                _lastChosenPie.ReactToMouseLeave();
+                SendKeys.SendWait("{ENTER}");
+                Clipboard.SetText(_lastChosenPie.FullText);
+                SendKeys.SendWait("^v");
+                SendKeys.SendWait("{ENTER}");
                 return;
             }
             if (Visibility == Visibility.Hidden)
@@ -116,7 +116,7 @@ namespace ChatWheel
                 return;
             }
             //Todo: optimize by generating a list of piepieces
-            foreach (var obj in chatWheelCanvas.Children)
+            foreach (var obj in ChatWheelCanvas.Children)
             {
                 if ((obj.GetType() != typeof (PiePiece))) continue;
                 var pie = obj as PiePiece;
@@ -142,23 +142,24 @@ namespace ChatWheel
         public void UpdateChatWheel()
         {
             hoverTimer.Stop();
-            chatWheelCanvas.Children.RemoveRange(1, chatWheelCanvas.Children.Count - 1);
+            ChatWheelCanvas.Children.RemoveRange(1, ChatWheelCanvas.Children.Count - 1);
             for (var i = 0; i < _settings.PhrasesAmount; i++)
             {
-                var piece = new PiePiece();
+                var piece = new PiePiece
+                {
+                    FillColor = new SolidColorBrush((Color) ColorConverter.ConvertFromString(buttonColors[i])),
+                    CenterX = _chatWheelCenterLocation.X,
+                    CenterY = _chatWheelCenterLocation.Y,
+                    RotationAngle = 360.0/_settings.PhrasesAmount*i,
+                    WedgeAngle = 360.0/_settings.PhrasesAmount - 2,
+                    Radius = 110,
+                    InnerRadius = 50,
+                    PieceValue = i,
+                    FullText = _settings.Phrases[i].FullPhrase,
+                    ShortText = _settings.Phrases[i].ShortPhrase
+                };
 
-                piece.FillColor =
-                    new SolidColorBrush((Color) ColorConverter.ConvertFromString(buttonColors[i]));
-                piece.CenterX = _chatWheelCenterLocation.X;
-                piece.CenterY = _chatWheelCenterLocation.Y;
-                piece.RotationAngle = 360.0/_settings.PhrasesAmount*i;
-                piece.WedgeAngle = 360.0/_settings.PhrasesAmount - 2;
-                piece.Radius = 110;
-                piece.InnerRadius = 50;
-                piece.PieceValue = i;
-                piece.FullText = _settings.Phrases[i].FullPhrase;
-                piece.ShortText = _settings.Phrases[i].ShortPhrase;
-                chatWheelCanvas.Children.Add(piece);
+                ChatWheelCanvas.Children.Add(piece);
             }
             hoverTimer.Start();
         }

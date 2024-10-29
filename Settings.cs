@@ -9,26 +9,19 @@ namespace ChatWheel
 {
     public class Settings
     {
-        public Settings()
+        public int PhrasesAmount { get; set; } = 5;
+        public int HotKey { get; set; } = (int) Keys.Oemtilde;
+        public Phrase[] Phrases { get; set; } =
         {
-            PhrasesAmount = 5;
-            HotKey = (int) Keys.Oemtilde;
-            Phrases = new[]
-            {
-                new Phrase("First", "First"),
-                new Phrase("Second", "Second"),
-                new Phrase("Third", "Third"),
-                new Phrase("Fourth", "Fourth"),
-                new Phrase("Fifth", "Fifth"),
-                new Phrase("Sixth", "Sixth"),
-                new Phrase("Seventh", "Seventh"),
-                new Phrase("Eighth", "Eighth")
-            };
-        }
-
-        public int PhrasesAmount { get; set; }
-        public int HotKey { get; set; }
-        public Phrase[] Phrases { get; set; }
+            new Phrase("First", "First"),
+            new Phrase("Second", "Second"),
+            new Phrase("Third", "Third"),
+            new Phrase("Fourth", "Fourth"),
+            new Phrase("Fifth", "Fifth"),
+            new Phrase("Sixth", "Sixth"),
+            new Phrase("Seventh", "Seventh"),
+            new Phrase("Eighth", "Eighth")
+        };
 
         public static Settings Deserialize()
         {
@@ -58,7 +51,6 @@ namespace ChatWheel
                 using (var fs = File.OpenWrite("./heroeswheel.xml"))
                 {
                     xmlSerializer.Serialize(fs, settings);
-                    ;
                 }
             }
             catch (Exception e)
@@ -71,6 +63,8 @@ namespace ChatWheel
 
         public class Phrase
         {
+            // ReSharper disable once UnusedMember.Global
+            // Required for serialization
             public Phrase()
             {
             }

@@ -6,7 +6,7 @@
     AllowsTransparency="True" Topmost="True" WindowStyle="None"
     Background="Transparent"
     Title="ChatOverlay">
-    <Canvas x:Name="chatWheelCanvas" Background="Transparent">
+    <Canvas x:Name="ChatWheelCanvas" Background="Transparent">
         <Ellipse Visibility="Visible" x:Name="elpsChatWheel" Height="220" Canvas.Left="175" Stroke="#FF202125"
                  StrokeThickness="35" Canvas.Top="175" Width="220" />
 

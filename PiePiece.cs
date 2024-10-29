@@ -156,8 +156,8 @@ namespace ChatWheel
         /// </summary>
         public double Radius
         {
-            get { return (double) GetValue(RadiusProperty); }
-            set { SetValue(RadiusProperty, value); }
+            get => (double) GetValue(RadiusProperty);
+            set => SetValue(RadiusProperty, value);
         }
 
         public static readonly DependencyProperty PushOutProperty =
@@ -170,8 +170,8 @@ namespace ChatWheel
         /// </summary>
         public double PushOut
         {
-            get { return (double) GetValue(PushOutProperty); }
-            set { SetValue(PushOutProperty, value); }
+            get => (double) GetValue(PushOutProperty);
+            set => SetValue(PushOutProperty, value);
         }
 
         public static readonly DependencyProperty InnerRadiusProperty =
@@ -184,8 +184,8 @@ namespace ChatWheel
         /// </summary>
         public double InnerRadius
         {
-            get { return (double) GetValue(InnerRadiusProperty); }
-            set { SetValue(InnerRadiusProperty, value); }
+            get => (double) GetValue(InnerRadiusProperty);
+            set => SetValue(InnerRadiusProperty, value);
         }
 
         public static readonly DependencyProperty WedgeAngleProperty =
@@ -198,7 +198,7 @@ namespace ChatWheel
         /// </summary>
         public double WedgeAngle
         {
-            get { return (double) GetValue(WedgeAngleProperty); }
+            get => (double) GetValue(WedgeAngleProperty);
             set
             {
                 SetValue(WedgeAngleProperty, value);
@@ -216,8 +216,8 @@ namespace ChatWheel
         /// </summary>
         public double RotationAngle
         {
-            get { return (double) GetValue(RotationAngleProperty); }
-            set { SetValue(RotationAngleProperty, value); }
+            get => (double) GetValue(RotationAngleProperty);
+            set => SetValue(RotationAngleProperty, value);
         }
 
         public static readonly DependencyProperty CenterXProperty =
@@ -230,8 +230,8 @@ namespace ChatWheel
         /// </summary>
         public double CenterX
         {
-            get { return (double) GetValue(CenterXProperty); }
-            set { SetValue(CenterXProperty, value); }
+            get => (double) GetValue(CenterXProperty);
+            set => SetValue(CenterXProperty, value);
         }
 
         public static readonly DependencyProperty CenterYProperty =
@@ -244,8 +244,8 @@ namespace ChatWheel
         /// </summary>
         public double CenterY
         {
-            get { return (double) GetValue(CenterYProperty); }
-            set { SetValue(CenterYProperty, value); }
+            get => (double) GetValue(CenterYProperty);
+            set => SetValue(CenterYProperty, value);
         }
 
         public static readonly DependencyProperty PercentageProperty =
@@ -257,8 +257,8 @@ namespace ChatWheel
         /// </summary>
         public double Percentage
         {
-            get { return (double) GetValue(PercentageProperty); }
-            private set { SetValue(PercentageProperty, value); }
+            get => (double) GetValue(PercentageProperty);
+            private set => SetValue(PercentageProperty, value);
         }
 
         public static readonly DependencyProperty PieceValueProperty =
@@ -270,8 +270,8 @@ namespace ChatWheel
         /// </summary>
         public double PieceValue
         {
-            get { return (double) GetValue(PieceValueProperty); }
-            set { SetValue(PieceValueProperty, value); }
+            get => (double) GetValue(PieceValueProperty);
+            set => SetValue(PieceValueProperty, value);
         }
 
 
@@ -285,8 +285,8 @@ namespace ChatWheel
         /// </summary>
         public string FullText
         {
-            get { return (string) GetValue(FullTextProperty); }
-            set { SetValue(FullTextProperty, value); }
+            get => (string) GetValue(FullTextProperty);
+            set => SetValue(FullTextProperty, value);
         }
 
         public static readonly DependencyProperty ShortTextProperty =
@@ -299,8 +299,8 @@ namespace ChatWheel
         /// </summary>
         public string ShortText
         {
-            get { return (string) GetValue(ShortTextProperty); }
-            set { SetValue(ShortTextProperty, value); }
+            get => (string) GetValue(ShortTextProperty);
+            set => SetValue(ShortTextProperty, value);
         }
 
         #endregion
